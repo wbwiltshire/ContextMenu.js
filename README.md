@@ -15,7 +15,7 @@ For more informaton:
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />		
 <link rel="stylesheet" type="text/css" href="/stylesheets/contexmenu.css" />
 ```
-1. HTML5 <b>table row</b> changes for the unique id
+2. HTML5 <b>table row</b> changes for the unique id
 ```html
 <div class="row">
     <div class="col-md-12">
@@ -40,7 +40,7 @@ For more informaton:
     </div>
 </div>
 ```
-1. HTML5 add a <b>context menu</b> to the body right after the table
+3. HTML5 add a <b>context menu</b> to the body right <b>before</b> the table
 ```html
 <nav id="context-menu" class="contextMenu">
 	<ul class="contextMenu-items">
@@ -59,18 +59,17 @@ For more informaton:
 	</ul>
 </nav>
 ```
-1. Javascript changes
+4. Javascript changes
   * Instantiation
 ```js
 var contexmenu = new ContextMenu(); 
 ```
-1. Add ContextMenu.js to page scripts
+5. Add ContextMenu.js to page scripts
 ```js
 <script src="/javascripts/contexmenu.js" type="text/javascript"></script>
 ```
 
 ### FAQ
-
 1. How do I get the context menu to disappear again?
   * Right or left click anywhere outside the table body, including the table header
 1. Can I still use the default document context menu?

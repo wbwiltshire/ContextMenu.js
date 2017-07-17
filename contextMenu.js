@@ -11,7 +11,10 @@ function ContextMenu() {
 	var self = this;
 
 	//Listen for window resized event, so we can turn off menu
-	this.ResizeListener();
+     //Turn menu off, if window resized
+     window.onresize = function (e) {
+               self.ToggleMenuOff();
+     };
 
 	//Listen for click event to turn off context menu
 	document.addEventListener("click", function(e) {
@@ -26,21 +29,26 @@ function ContextMenu() {
 	//Listen for the context menu click (right click) event
 	document.addEventListener( "contextmenu", function(e) {
 		var element = e.srcElement || e.target;
+		var found = false;
 		
 		//console.log(e);
+		//Search for contextMenu-target
+		while (! found) {
+			if ((element.classList !== undefined) && (element.classList.contains('contextMenu-target')))
+				found = true;
+			else {
+				if (element.parentNode != null)
+					element = element.parentNode;
+				else
+					break;
+			}
+		}
 		//Toggle menu on, if the element is the target
-		if (element.classList.contains('contextMenu-target')) {
+		if (found) {
 			e.preventDefault();
 			self.PositionMenu(e);
 			self.ToggleMenuOn(element);
 			//console.log('clicked inside table (' + element.id + ')' );			
-		}
-		//Toggle menu on, if element's parent is the target
-		else if ((element.parentNode.classList !== undefined) && (element.parentNode.classList.contains('contextMenu-target'))) {
-			e.preventDefault();
-			self.PositionMenu(e);
-			self.ToggleMenuOn(element.parentNode);
-			//console.log('clicked inside table (' + element.parentNode.id + ')' );			
 		}
 		else {
 			self.ToggleMenuOff()
@@ -124,11 +132,4 @@ ContextMenu.prototype.ToggleMenuOff =function() {
 		this.menuState = this.MENU_STATE.OFF;
 		this.menu.classList.remove(this.contextMenuActive);			
 	}
-};
-	
-//Turn menu off, if window resized
-ContextMenu.prototype.ResizeListener = function () {	
-	window.onresize = function(e) {
-		this.ToggleMenuOff();
-	};
 };
