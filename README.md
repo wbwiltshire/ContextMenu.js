@@ -23,21 +23,21 @@ For more informaton:
 			<thead>
 				<tr>
 					<th>Id</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>EMail</th>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>EMail</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr id='1' class='contextMenu-target'>
 					<td >1</td>
-                    <td>Daffy</td>
-                    <td>Duck</td>
-                    <td>DaffyD@Disney.com</td>
+					<td>Daffy</td>
+					<td>Duck</td>
+					<td>DaffyD@Disney.com</td>
 				</tr>
-            </tbody>
-	    </table>
-    </div>
+			</tbody>
+		</table>
+	</div>
 </div>
 ```
 3. HTML5 add a <b>context menu</b> to the body right <b>before</b> the table
